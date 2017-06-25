@@ -1,8 +1,8 @@
 # scarab-styleguide
-**Generate living styleguides from scarab-carapace config**
+**Generate living styleguides from [scarab-carapace](https://github.com/watchtowerdigital/scarab-carapace) config**
 
 ## Demo
-View a demo styleguide generate from the default `scarab-carapace` config:  
+View a demo styleguide, generated from the default `scarab-carapace` config:  
 **[http://scarab-styleguide.surge.sh/](http://scarab-styleguide.surge.sh/)**
 
 ## Quickstart
