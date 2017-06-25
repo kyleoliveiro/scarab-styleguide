@@ -1,0 +1,14 @@
+.AppSidebar {
+	transform: translateX(100%);
+	transition: transform get(durations, s) get(easings, o-quad);
+	-webkit-overflow-scrolling: touch;
+	z-index: 2147483647;
+
+	&.is-active {
+		transform: translateX(0);
+	}
+
+	@include query( m ) {
+		transform: translateX(0);
+	}
+}

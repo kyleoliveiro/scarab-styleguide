@@ -1,0 +1,20 @@
+// Color palettes
+@include set( palettes, (
+	transparent: (
+		base: transparent
+	),
+	white: (
+		base: #ffffff
+	),
+	grey:  (
+		light: #e0e0e0,
+		base:  #cfcfcf,
+		dark:  #686868
+	),
+	black: (
+		base: #161616
+	),
+	blue: (
+		base: rgba(11, 36, 193, 1)
+	)
+) );

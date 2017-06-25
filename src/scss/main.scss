@@ -1,0 +1,10 @@
+@import 'carapace/main';
+@import 'components/_';
+
+body {
+	font-family: get(typefaces, primary);
+}
+
+input:focus {
+	font-size: 1rem;
+}

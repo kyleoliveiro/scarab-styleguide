@@ -1,0 +1,44 @@
+{
+  "name": "scarab-styleguide",
+  "description": "Automatic living styleguides with scarab-carapace",
+  "version": "1.0.0",
+  "author": "Kyle Oliveiro <kyle@watchtower.digital>",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "sass:carapace": "node-sass src/scss/carapace-modules.scss -o dist/",
+    "sass:main": "node-sass src/scss/main.scss -o dist/",
+    "sass:render": "npm run sass:carapace && npm run sass:main",
+    "sass:split": "for file in dist/*.css\ndo\n sakugawa -n 9999999999 -m separate \"$file\" \ndone",
+    "sass:minify": "for file in dist/*.css\ndo\n cssnano \"$file\" \"$file\".min \ndone",
+    "sass:rename": "for file in dist/*.css.min\ndo\n mv \"$file\" \"${file%.css.min}.min.css\" \ndone",
+    "presass": "rm -f dist/*.css && rm -f dist/*.css.min ",
+    "sass": "npm run sass:render && npm run sass:split && npm run sass:minify && npm run sass:rename"
+  },
+  "dependencies": {
+    "json-to-html": "^0.1.2",
+    "lodash": "^4.17.4",
+    "vue": "^2.2.1",
+    "vue-router": "^2.5.3",
+    "vue-smoothscroll": "^0.1.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-preset-latest": "^6.0.0",
+    "browser-sync": "^2.18.8",
+    "browser-sync-webpack-plugin": "^1.1.4",
+    "cross-env": "^3.0.0",
+    "css-loader": "^0.25.0",
+    "cssnano": "^3.10.0",
+    "file-loader": "^0.9.0",
+    "node-sass": "^4.3.0",
+    "sakugawa": "^0.5.3",
+    "sass-loader": "^5.0.1",
+    "vue-loader": "^11.1.4",
+    "vue-template-compiler": "^2.2.1",
+    "webpack": "^2.2.0",
+    "webpack-dev-server": "^2.2.0"
+  }
+}

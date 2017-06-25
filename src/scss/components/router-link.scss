@@ -1,0 +1,7 @@
+.router-link-active {
+	color: palette(dark grey);
+
+	.AppHeader & {
+		color: palette(black);
+	}
+}

@@ -1,0 +1,19 @@
+// Global sizing
+@include set( sizes, (
+	0  : 0,
+	xs : bl(0.50),
+	s  : bl(1.00),
+	m  : bl(2.00),
+	l  : bl(4.00),
+	xl : bl(8.00)
+) );
+
+// Coordinates
+@include set( coordinates, map-merge(
+	get(sizes), 
+	(
+		50  : 50%,
+		100 : 100%,
+		a   : auto
+	)
+) );
