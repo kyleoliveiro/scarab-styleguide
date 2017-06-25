@@ -1,6 +1,6 @@
 {
   "name": "scarab-styleguide",
-  "description": "Automatic living styleguides with scarab-carapace",
+  "description": "Generate living styleguides from scarab-carapace config",
   "version": "1.0.0",
   "author": "Kyle Oliveiro <kyle@watchtower.digital>",
   "license": "BSD-3-Clause",
