@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "sass:carapace": "node-sass src/scss/carapace-modules.scss -o dist/",
-    "sass:main": "node-sass src/scss/main.scss -o dist/",
+    "sass:carapace": "node-sass --include-path node_modules src/scss/carapace-modules.scss -o dist/",
+    "sass:main": "node-sass --include-path node_modules src/scss/main.scss -o dist/",
     "sass:render": "npm run sass:carapace && npm run sass:main",
     "sass:split": "for file in dist/*.css\ndo\n sakugawa -n 9999999999 -m separate \"$file\" \ndone",
     "sass:minify": "for file in dist/*.css\ndo\n cssnano \"$file\" \"$file\".min \ndone",
@@ -36,6 +36,7 @@
     "node-sass": "^4.3.0",
     "sakugawa": "^0.5.3",
     "sass-loader": "^5.0.1",
+    "scarab-carapace": "^3.0.3",
     "vue-loader": "^11.1.4",
     "vue-template-compiler": "^2.2.1",
     "webpack": "^2.2.0",
