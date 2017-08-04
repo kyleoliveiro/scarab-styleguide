@@ -1,0 +1,5 @@
+@media (min-width: 50em) {
+  .AppSidebar {
+    transform: translateX(0);
+  }
+}
