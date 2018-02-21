@@ -1,4 +1,4 @@
-import scarab from '../scarab.config.json';
+import scarab from '../scarab.json';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueSmoothScroll from 'vue-smoothscroll';

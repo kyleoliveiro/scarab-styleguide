@@ -7,15 +7,15 @@
 </template>
 
 <script>
-    import scarab from    '../../scarab.config.json'
+    import scarab from '../../scarab.json'
 
 	export default {
 		name: 'AppBody',
 		props: ['debounce'],
 		data() {
 			return {
-                scarab
-            };
+				scarab
+			};
 		},
 		methods: {
 			updateSidebar: _.throttle(function() {

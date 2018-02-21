@@ -2,55 +2,53 @@
   <AppContainer>
     <AppSidebar
     :sidebarActive="sidebarActive" 
-    :navItems="['selector-format'].concat( Object.keys(scarab.SCARAB['modules']) )">
+    :navItems="['selector-format'].concat( Object.keys(inventory['module']) )">
     </AppSidebar>
 
     <AppBody :debounce="this.debounce">
       <header class="d:b w:100 p:s p-b:0">
         <div class="fl:l">
           <ul class="fz:small p:xs m(p:s)">
-            <li class="ff:secondary fw:b fz:heading lh:heading">{{scarab.SCARAB['__styleguide-title'] || 'scarab-styleguide'}} <span class="fz:small">v{{scarab.SCARAB['__styleguide-version'] || '0.1.0'}}</span></li>
-            <li>scarab-scss v{{scarab.SCARAB['__scarab-version'] || '?.?.? < v6.0.0'}}</li>
-            <li>scarab-carapace v{{scarab.SCARAB['__carapace-version'] || '?.?.? < v3.0.0'}}</li>
+            <li class="ff:secondary fw:b fz:heading lh:heading">{{options['__styleguide-title'] || 'scarab-styleguide'}}</li>
           </ul>
         </div>
       </header>
 
-      <StyleguideSection :name="'selector-format'" class="gcol:12">
+      <!-- <StyleguideSection :name="'selector-format'" class="gcol:12">
           <p class="ff:primary fz:subheading lh:subheading c:dark-grey m-b:s">
             <span class="c:grey">
               class="</span>{{buildSelector({
-                selectorFormat   : scarab.SCARAB['selector-format'],
+                selectorFormat   : options['selector-format'],
                 module           : 'stack',
-                rootPrefix       : scarab.SCARAB['root-prefix'],
-                rootSuffix       : scarab.SCARAB['root-suffix'],
-                variantPrefix    : scarab.SCARAB['variant-prefix'],
-                variantSuffix    : scarab.SCARAB['variant-suffix'],
-                modifierPrefix   : scarab.SCARAB['modifier-prefix'],
-                modifierSuffix   : scarab.SCARAB['modifier-suffix'],
-                breakpointPrefix : scarab.SCARAB['breakpoint-prefix'],
-                breakpointSuffix : scarab.SCARAB['breakpoint-suffix'],
-                statePrefix      : scarab.SCARAB['state-prefix'],
-                stateSuffix      : scarab.SCARAB['state-suffix'],
-                variant          : scarab.SCARAB['directions']['horizontal'],
-                modifier         : Object.keys(scarab.SCARAB['sizes'])[0],
-                breakpoint       : Object.keys(scarab.SCARAB['breakpoints'])[0],
-                state            : scarab.SCARAB['states'][Object.keys(scarab.SCARAB['states'])[0]]
+                rootPrefix       : options['root-prefix'],
+                rootSuffix       : options['root-suffix'],
+                variantPrefix    : options['variant-prefix'],
+                variantSuffix    : options['variant-suffix'],
+                modifierPrefix   : options['modifier-prefix'],
+                modifierSuffix   : options['modifier-suffix'],
+                breakpointPrefix : options['breakpoint-prefix'],
+                breakpointSuffix : options['breakpoint-suffix'],
+                statePrefix      : options['state-prefix'],
+                stateSuffix      : options['state-suffix'],
+                variant          : options['namescheme']['directions'][0],
+                modifier         : Object.keys(inventory['spacing'])[0],
+                breakpoint       : Object.keys(inventory['breakpoint'])[0],
+                state            : options['namescheme']['states'][0]
               })}}<span class="c:grey">"
             </span>
           </p>
 
-          <p class="ff:primary fz:tiny lh:tiny ls:m c:dark-grey">{{scarab.SCARAB['selector-format']}}</p>
-      </StyleguideSection>
+          <p class="ff:primary fz:tiny lh:tiny ls:m c:dark-grey">{{options['selector-format']}}</p>
+      </StyleguideSection> -->
 
-      <StyleguideSection :name="name" class="gcol:12" v-for="(module, name) in scarab.SCARAB['modules']" :key="name">
+      <StyleguideSection :name="name" class="gcol:12" v-for="(module, name) in inventory['module']" :key="name">
         <ModuleDataTable
           :name="name"
           :headings="[
             {name: 'key',  width: 25},
             {name: 'value', width: 75}
           ]" 
-          :data="scarab.SCARAB['modules'][name]">
+          :data="inventory['module'][name]">
         </ModuleDataTable>
       </StyleguideSection>
     </AppBody>
@@ -68,7 +66,7 @@ import ModuleDataTable   from '../components/ModuleDataTable.vue'
 
 export default {
   name: 'Modules',
-  props: ['scarab', 'sidebarActive', 'debounce', 'mapValues', 'buildSelector', 'arrayToShadow', 'arrayToFontFamily'],
+  props: ['scarab', 'inventory', 'options', 'constants', 'sidebarActive', 'debounce', 'mapValues', 'buildSelector', 'arrayToShadow', 'arrayToFontFamily'],
   components: {
     AppHeader, AppContainer, AppSidebar, AppBody,
     StyleguideSection,

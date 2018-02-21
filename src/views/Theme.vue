@@ -3,27 +3,33 @@
     <AppSidebar 
     :sidebarActive="sidebarActive"
     :navItems="[
-        'breakpoints',
-        'directions',
-        'states',
         'baseline',
-        'palettes',
-        'line-widths',
-        'line-styles',
-        'radii',
-        'box-shadows',
-        'text-shadows',
+        'breakpoint',
+        'color',
+        'gradient',
         'opacity',
-        'sizes',
-        'coordinates',
-        'typefaces',
-        'font-sizes',
-        'line-heights',
-        'tracking',
-        'font-weights',
-        'durations',
-        'easings',
-        'animations'
+        'background-image',
+        'letter-spacing',
+        'line-height',
+        'font-family',
+        'font-size',
+        'font-weight',
+        'line-style',
+        'line-width',
+        'measure',
+        'wrap',
+        'spacing',
+        'coordinate',
+        'flex-grid',
+        'ratio',
+        'angle',
+        'duration',
+        'easing',
+        'border-radius',
+        'box-shadow',
+        'text-shadow',
+        'keyframe',
+        'module'
     ]">
     </AppSidebar>
 
@@ -31,9 +37,7 @@
       <header class="d:b w:100 p:s p-b:0">
         <div class="fl:l">
           <ul class="fz:small p:xs m(p:s)">
-            <li class="ff:secondary fw:b fz:heading lh:heading">{{scarab.SCARAB['__styleguide-title'] || 'scarab-styleguide'}} <span class="fz:small">v{{scarab.SCARAB['__styleguide-version'] || '0.1.0'}}</span></li>
-            <li>scarab-scss v{{scarab.SCARAB['__scarab-version'] || '?.?.? < v6.0.0'}}</li>
-            <li>scarab-carapace v{{scarab.SCARAB['__carapace-version'] || '?.?.? < v3.0.0'}}</li>
+            <li class="ff:secondary fw:b fz:heading lh:heading">{{options['__styleguide-title'] || 'scarab-styleguide'}}</li>
           </ul>
         </div>
       </header>
@@ -45,53 +49,31 @@
             {name: 'name',  width: 50},
             {name: 'value', width: 50}
           ]" 
-          :data="scarab.SCARAB['breakpoints']">
-        </DataTable>
-      </StyleguideSection>
-
-      <StyleguideSection :name="'directions'" class="gcol:12 s(gcol:6)">
-        <DataTable
-          :name="'directions'"
-          :headings="[
-            {name: 'name',  width: 50},
-            {name: 'value', width: 50}
-          ]" 
-          :data="scarab.SCARAB['directions']">
-        </DataTable>
-      </StyleguideSection>
-
-      <StyleguideSection :name="'states'" class="gcol:12 s(gcol:6)">
-        <DataTable
-          :name="'states'"
-          :headings="[
-            {name: 'name',  width: 50},
-            {name: 'value', width: 50}
-          ]" 
-          :data="scarab.SCARAB['states']">
+          :data="inventory['breakpoint']">
         </DataTable>
       </StyleguideSection>
 
       <StyleguideSection :name="'baseline'" class="gcol:12">
-        <span class="d:b ff:primary c:dark-grey m-b:s" :style="{ fontSize: scarab.SCARAB['baseline'], lineHeight: scarab.SCARAB['baseline'] }">{{scarab.SCARAB['baseline']}}</span>
-        <i class="d:b p-x:xs m(p-x:s) bgc:light-grey fz:tiny" :style="{ height: scarab.SCARAB['baseline'], lineHeight: scarab.SCARAB['baseline'] }"></i>
-        <i class="d:b p-x:xs m(p-x:s) bgc:white fz:tiny" :style="{ height: scarab.SCARAB['baseline'], lineHeight: scarab.SCARAB['baseline'] }"></i>
-        <i class="d:b p-x:xs m(p-x:s) bgc:light-grey fz:tiny" :style="{ height: scarab.SCARAB['baseline'], lineHeight: scarab.SCARAB['baseline'] }"></i>
-        <i class="d:b p-x:xs m(p-x:s) bgc:white fz:tiny" :style="{ height: scarab.SCARAB['baseline'], lineHeight: scarab.SCARAB['baseline'] }"></i>
-        <i class="d:b p-x:xs m(p-x:s) bgc:light-grey fz:tiny" :style="{ height: scarab.SCARAB['baseline'], lineHeight: scarab.SCARAB['baseline'] }"></i>
-        <i class="d:b p-x:xs m(p-x:s) bgc:white fz:tiny" :style="{ height: scarab.SCARAB['baseline'], lineHeight: scarab.SCARAB['baseline'] }"></i>
-        <i class="d:b p-x:xs m(p-x:s) bgc:light-grey fz:tiny" :style="{ height: scarab.SCARAB['baseline'], lineHeight: scarab.SCARAB['baseline'] }"></i>
-        <i class="d:b p-x:xs m(p-x:s) bgc:white fz:tiny" :style="{ height: scarab.SCARAB['baseline'], lineHeight: scarab.SCARAB['baseline'] }"></i>
-        <i class="d:b p-x:xs m(p-x:s) bgc:light-grey fz:tiny" :style="{ height: scarab.SCARAB['baseline'], lineHeight: scarab.SCARAB['baseline'] }"></i>
-        <i class="d:b p-x:xs m(p-x:s) bgc:white fz:tiny" :style="{ height: scarab.SCARAB['baseline'], lineHeight: scarab.SCARAB['baseline'] }"></i>
-        <i class="d:b p-x:xs m(p-x:s) bgc:light-grey fz:tiny" :style="{ height: scarab.SCARAB['baseline'], lineHeight: scarab.SCARAB['baseline'] }"></i>
-        <i class="d:b p-x:xs m(p-x:s) bgc:white fz:tiny" :style="{ height: scarab.SCARAB['baseline'], lineHeight: scarab.SCARAB['baseline'] }"></i>
-        <i class="d:b p-x:xs m(p-x:s) bgc:light-grey fz:tiny" :style="{ height: scarab.SCARAB['baseline'], lineHeight: scarab.SCARAB['baseline'] }"></i>
-        <i class="d:b p-x:xs m(p-x:s) bgc:white fz:tiny" :style="{ height: scarab.SCARAB['baseline'], lineHeight: scarab.SCARAB['baseline'] }"></i>
-        <i class="d:b p-x:xs m(p-x:s) bgc:light-grey fz:tiny" :style="{ height: scarab.SCARAB['baseline'], lineHeight: scarab.SCARAB['baseline'] }"></i>
+        <span class="d:b ff:primary c:dark-grey m-b:s" :style="{ fontSize: inventory['baseline'], lineHeight: inventory['baseline'] }">{{inventory['baseline']}}</span>
+        <i class="d:b p-x:xs m(p-x:s) bgc:light-grey fz:tiny" :style="{ height: inventory['baseline'], lineHeight: inventory['baseline'] }"></i>
+        <i class="d:b p-x:xs m(p-x:s) bgc:white fz:tiny" :style="{ height: inventory['baseline'], lineHeight: inventory['baseline'] }"></i>
+        <i class="d:b p-x:xs m(p-x:s) bgc:light-grey fz:tiny" :style="{ height: inventory['baseline'], lineHeight: inventory['baseline'] }"></i>
+        <i class="d:b p-x:xs m(p-x:s) bgc:white fz:tiny" :style="{ height: inventory['baseline'], lineHeight: inventory['baseline'] }"></i>
+        <i class="d:b p-x:xs m(p-x:s) bgc:light-grey fz:tiny" :style="{ height: inventory['baseline'], lineHeight: inventory['baseline'] }"></i>
+        <i class="d:b p-x:xs m(p-x:s) bgc:white fz:tiny" :style="{ height: inventory['baseline'], lineHeight: inventory['baseline'] }"></i>
+        <i class="d:b p-x:xs m(p-x:s) bgc:light-grey fz:tiny" :style="{ height: inventory['baseline'], lineHeight: inventory['baseline'] }"></i>
+        <i class="d:b p-x:xs m(p-x:s) bgc:white fz:tiny" :style="{ height: inventory['baseline'], lineHeight: inventory['baseline'] }"></i>
+        <i class="d:b p-x:xs m(p-x:s) bgc:light-grey fz:tiny" :style="{ height: inventory['baseline'], lineHeight: inventory['baseline'] }"></i>
+        <i class="d:b p-x:xs m(p-x:s) bgc:white fz:tiny" :style="{ height: inventory['baseline'], lineHeight: inventory['baseline'] }"></i>
+        <i class="d:b p-x:xs m(p-x:s) bgc:light-grey fz:tiny" :style="{ height: inventory['baseline'], lineHeight: inventory['baseline'] }"></i>
+        <i class="d:b p-x:xs m(p-x:s) bgc:white fz:tiny" :style="{ height: inventory['baseline'], lineHeight: inventory['baseline'] }"></i>
+        <i class="d:b p-x:xs m(p-x:s) bgc:light-grey fz:tiny" :style="{ height: inventory['baseline'], lineHeight: inventory['baseline'] }"></i>
+        <i class="d:b p-x:xs m(p-x:s) bgc:white fz:tiny" :style="{ height: inventory['baseline'], lineHeight: inventory['baseline'] }"></i>
+        <i class="d:b p-x:xs m(p-x:s) bgc:light-grey fz:tiny" :style="{ height: inventory['baseline'], lineHeight: inventory['baseline'] }"></i>
       </StyleguideSection>
 
-      <StyleguideSection :name="'palettes'" :class="'gcol:12'">
-        <table class="tl:f w:100 fz:small bc:c" v-if="scarab.SCARAB['palettes']">
+      <StyleguideSection :name="'color'" :class="'gcol:12'">
+        <table class="tl:f w:100 fz:small bc:c" v-if="inventory['color']">
           <thead class="ta:l c:dark-grey">
             <tr class="tt:l fw:b">
               <th class="p:xs m(p:s)  w:50 s(w:25)">Palette</th>
@@ -100,7 +82,7 @@
           </thead>
 
           <tbody>
-            <tr v-for="(paletteValue, paletteName) in scarab.SCARAB['palettes']">
+            <tr v-for="(paletteValue, paletteName) in inventory['color']">
               <td class="p:xs m(p:s) va:t bd-t:s bdc:light-grey  ta:l">
                 <span class="fw:b c:dark-grey">{{paletteName}}</span>
               </td>
@@ -131,55 +113,55 @@
         </table>
 
         <div class="p:xs m(p:s)" v-else>
-          No palettes set.
+          No colors set.
         </div>
       </StyleguideSection>
 
-      <StyleguideSection :name="'line-widths'" :class="'gcol:12 s(gcol:6)'">
+      <StyleguideSection :name="'line-width'" :class="'gcol:12 s(gcol:6)'">
         <DataTable
-          :name="'line-widths'"
+          :name="'line-width'"
           :headings="[
             {name: 'name',  width: 25},
             {name: 'value', width: 25},
             {name: 'example', width: 50}
           ]"
-          :data="scarab.SCARAB['line-widths']">
+          :data="inventory['line-width']">
 
           <template scope="dataTable" slot="example">
             <div class="stack-y:0">
-              <i class="d:b w:100 bdc:black" :style="{ borderTopWidth: dataTable.value, borderTopStyle: lineStyle }" v-for="lineStyle in scarab.SCARAB['line-styles']"></i>
+              <i class="d:b w:100 bdc:black" :style="{ borderTopWidth: dataTable.value, borderTopStyle: lineStyle }" v-for="lineStyle in inventory['line-style']"></i>
             </div>
           </template>
         </DataTable>
       </StyleguideSection>
 
-      <StyleguideSection :name="'line-styles'" :class="'gcol:12 s(gcol:6)'">
+      <StyleguideSection :name="'line-style'" :class="'gcol:12 s(gcol:6)'">
         <DataTable
-          :name="'line-styles'"
+          :name="'line-style'"
           :headings="[
             {name: 'name',  width: 25},
             {name: 'value', width: 25},
             {name: 'example', width: 50}
           ]"
-          :data="scarab.SCARAB['line-styles']">
+          :data="inventory['line-style']">
 
           <template scope="dataTable" slot="example">
             <div class="stack-y:0">
-              <i class="d:b w:100 bd-t:s bdc:black" :style="{ borderTopStyle: dataTable.value, borderTopWidth: lineWidth }" v-for="lineWidth in scarab.SCARAB['line-widths']"></i>
+              <i class="d:b w:100 bd-t:s bdc:black" :style="{ borderTopStyle: dataTable.value, borderTopWidth: lineWidth }" v-for="lineWidth in inventory['line-width']"></i>
             </div>
           </template>
         </DataTable>
       </StyleguideSection>
 
-      <StyleguideSection :name="'radii'" :class="'gcol:12'">
+      <StyleguideSection :name="'border-radius'" :class="'gcol:12'">
         <DataTable
-          :name="'radii'"
+          :name="'border-radius'"
           :headings="[
             {name: 'name',  width: 25},
             {name: 'value', width: 25},
             {name: 'example', width: 50}
           ]"
-          :data="scarab.SCARAB['radii']">
+          :data="inventory['border-radius']">
 
           <template scope="dataTable" slot="example">
             <div class="stack-y:0">
@@ -194,15 +176,15 @@
         </DataTable>
       </StyleguideSection>
 
-      <StyleguideSection :name="'box-shadows'" :class="'gcol:12'">
+      <StyleguideSection :name="'box-shadow'" :class="'gcol:12'">
         <DataTable
-          :name="'box-shadows'"
+          :name="'box-shadow'"
           :headings="[
             {name: 'name',  width: 25},
             {name: 'value', width: 25},
             {name: 'example', width: 50}
           ]"
-          :data="mapValues(scarab.SCARAB['box-shadows'], function(shadow) {
+          :data="mapValues(inventory['box-shadow'], function(shadow) {
             return arrayToShadow(shadow);
           })
         ">
@@ -215,15 +197,15 @@
         </DataTable>
       </StyleguideSection>
 
-      <StyleguideSection :name="'text-shadows'" :class="'gcol:12'">
+      <StyleguideSection :name="'text-shadow'" :class="'gcol:12'">
         <DataTable
-          :name="'text-shadows'"
+          :name="'text-shadow'"
           :headings="[
             {name: 'name',  width: 25},
             {name: 'value', width: 25},
             {name: 'example', width: 50}
           ]"
-          :data="mapValues(scarab.SCARAB['text-shadows'], function(shadow) {
+          :data="mapValues(inventory['text-shadow'], function(shadow) {
             return arrayToShadow(shadow);
           })
         ">
@@ -246,7 +228,7 @@
             {name: 'value', width: 25},
             {name: 'example', width: 50}
           ]"
-          :data="scarab.SCARAB['opacity']">
+          :data="inventory['opacity']">
 
           <template scope="dataTable" slot="example">
             <div class="stack-y:0">
@@ -258,15 +240,15 @@
         </DataTable>
       </StyleguideSection>
 
-      <StyleguideSection :name="'sizes'" :class="'gcol:12 s(gcol:6)'">
+      <StyleguideSection :name="'spacing'" :class="'gcol:12 s(gcol:6)'">
         <DataTable
-          :name="'sizes'"
+          :name="'spacing'"
           :headings="[
             {name: 'name',  width: 25},
             {name: 'value', width: 25},
             {name: 'example', width: 50}
           ]"
-          :data="scarab.SCARAB['sizes']">
+          :data="inventory['spacing']">
 
           <template scope="dataTable" slot="example">
             <span class="d:b bgc:light-grey" :style="{ width: dataTable.value, height: dataTable.value }"></span>
@@ -274,15 +256,15 @@
         </DataTable>
       </StyleguideSection>
 
-      <StyleguideSection :name="'coordinates'" :class="'gcol:12 s(gcol:6)'">
+      <StyleguideSection :name="'coordinate'" :class="'gcol:12 s(gcol:6)'">
         <DataTable
-          :name="'coordinates'"
+          :name="'coordinate'"
           :headings="[
             {name: 'name',  width: 25},
             {name: 'value', width: 25},
             {name: 'example', width: 50}
           ]"
-          :data="scarab.SCARAB['coordinates']">
+          :data="inventory['coordinate']">
 
           <template scope="dataTable" slot="example">
             <div class="pos:r d:b w:xl h:xl bd:s bdc:light-grey">
@@ -292,15 +274,15 @@
         </DataTable>
       </StyleguideSection>
 
-      <StyleguideSection :name="'typefaces'" :class="'gcol:12'">
+      <StyleguideSection :name="'font-family'" :class="'gcol:12'">
         <DataTable
-          :name="'typefaces'"
+          :name="'font-family'"
           :headings="[
             {name: 'name',  width: 25},
             {name: 'value', width: 25},
             {name: 'example', width: 50}
           ]"
-          :data="mapValues(scarab.SCARAB['typefaces'], function(typeface) {
+          :data="mapValues(inventory['font-family'], function(typeface) {
             return arrayToFontFamily(typeface);
           })
         ">
@@ -312,33 +294,33 @@
         </DataTable>
       </StyleguideSection>
 
-      <StyleguideSection :name="'font-sizes'" :class="'gcol:12'">
+      <StyleguideSection :name="'font-size'" :class="'gcol:12'">
         <DataTable
-          :name="'font-sizes'"
+          :name="'font-size'"
           :headings="[
             {name: 'name',  width: 25},
             {name: 'value', width: 25},
             {name: 'example', width: 50}
           ]"
-          :data="scarab.SCARAB['font-sizes']">
+          :data="inventory['font-size']">
 
           <template scope="dataTable" slot="example">
-            <div class="d:b m-b:s" :style="{ fontSize: dataTable.value, fontFamily: familyValue, lineHeight: '1' }" v-for="(familyValue, familyName) in scarab.SCARAB['typefaces']">
+            <div class="d:b m-b:s" :style="{ fontSize: dataTable.value, fontFamily: familyValue, lineHeight: '1' }" v-for="(familyValue, familyName) in inventory['font-family']">
               {{dataTable.valueName}}
             </div>
           </template>
         </DataTable>
       </StyleguideSection>
 
-      <StyleguideSection :name="'line-heights'" :class="'gcol:12'">
+      <StyleguideSection :name="'line-height'" :class="'gcol:12'">
         <DataTable
-          :name="'line-heights'"
+          :name="'line-height'"
           :headings="[
             {name: 'name',  width: 25},
             {name: 'value', width: 25},
             {name: 'example', width: 50}
           ]"
-          :data="scarab.SCARAB['line-heights']">
+          :data="inventory['line-height']">
 
           <template scope="dataTable" slot="example">
             <div class="d:b ln:s lnc:grey" :style="{ lineHeight: dataTable.value }">
@@ -348,47 +330,47 @@
         </DataTable>
       </StyleguideSection>
 
-      <StyleguideSection :name="'tracking'" :class="'gcol:12'">
+      <StyleguideSection :name="'letter-spacing'" :class="'gcol:12'">
         <DataTable
-          :name="'tracking'"
+          :name="'letter-spacing'"
           :headings="[
             {name: 'name',  width: 25},
             {name: 'value', width: 25},
             {name: 'example', width: 50}
           ]"
-          :data="scarab.SCARAB['tracking']">
+          :data="inventory['letter-spacing']">
 
           <template scope="dataTable" slot="example">
-            <div class="m-b:xs fz:body lh:body" :style="{ letterSpacing: dataTable.value, fontFamily: familyValue }" v-for="(familyValue, familyName) in scarab.SCARAB['typefaces']">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+            <div class="m-b:xs fz:body lh:body" :style="{ letterSpacing: dataTable.value, fontFamily: familyValue }" v-for="(familyValue, familyName) in inventory['font-family']">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
           </template>
         </DataTable>
       </StyleguideSection>
 
-      <StyleguideSection :name="'font-weights'" :class="'gcol:12'">
+      <StyleguideSection :name="'font-weight'" :class="'gcol:12'">
         <DataTable
-          :name="'font-weights'"
+          :name="'font-weight'"
           :headings="[
             {name: 'name',  width: 25},
             {name: 'value', width: 25},
             {name: 'example', width: 50}
           ]"
-          :data="scarab.SCARAB['font-weights']">
+          :data="inventory['font-weight']">
 
           <template scope="dataTable" slot="example">
-            <div class="m-b:xs fz:body lh:body" :style="{ fontWeight: dataTable.value, fontFamily: familyValue }" v-for="(familyValue, familyName) in scarab.SCARAB['typefaces']">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+            <div class="m-b:xs fz:body lh:body" :style="{ fontWeight: dataTable.value, fontFamily: familyValue }" v-for="(familyValue, familyName) in inventory['font-family']">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
           </template>
         </DataTable>
       </StyleguideSection>
 
-      <StyleguideSection :name="'durations'" :class="'gcol:12'">
+      <StyleguideSection :name="'duration'" :class="'gcol:12'">
         <DataTable
-          :name="'durations'"
+          :name="'duration'"
           :headings="[
             {name: 'name',  width: 25},
             {name: 'value', width: 25},
             {name: 'example', width: 50}
           ]"
-          :data="scarab.SCARAB['durations']">
+          :data="inventory['duration']">
 
           <template scope="dataTable" slot="example">
             <span class="d:b w:100 h:xs bd-b:s anim:growX anim-count:i origin:l" :style="{ animationDuration: dataTable.value }"></span>
@@ -396,15 +378,15 @@
         </DataTable>
       </StyleguideSection>
 
-      <StyleguideSection :name="'easings'" :class="'gcol:12'">
+      <StyleguideSection :name="'easing'" :class="'gcol:12'">
         <DataTable
-          :name="'easings'"
+          :name="'easing'"
           :headings="[
             {name: 'name',  width: 25},
             {name: 'value', width: 25},
             {name: 'example', width: 50}
           ]"
-          :data="scarab.SCARAB['easings']">
+          :data="inventory['easing']">
 
           <template scope="dataTable" slot="example">
             <span class="d:b w:100 h:xs bd-b:s anim:growX anim-count:i anim-dur:l origin:l" :style="{ animationTimingFunction: dataTable.value }"></span>
@@ -412,15 +394,15 @@
         </DataTable>
       </StyleguideSection>
 
-      <StyleguideSection :name="'animations'" :class="'gcol:12'">
+      <StyleguideSection :name="'animation'" :class="'gcol:12'">
         <DataTable
-          :name="'animations'"
+          :name="'animation'"
           :headings="[
             {name: 'name',  width: 25},
             {name: 'value', width: 25},
             {name: 'example', width: 50}
           ]"
-          :data="scarab.SCARAB['animations']">
+          :data="inventory['animation']">
 
           <template scope="dataTable" slot="example">
             <span class="d:ib w:l h:l bgc:light-grey bd:s anim-count:i anim-dur:l" :style="{ animationName: dataTable.valueName }"></span>
@@ -441,7 +423,7 @@ import DataTable         from '../components/DataTable.vue'
 
 export default {
   name: 'Theme',
-  props: ['scarab', 'sidebarActive', 'debounce', 'mapValues', 'buildSelector', 'declareAnimations', 'arrayToShadow', 'arrayToFontFamily'],
+  props: ['scarab', 'inventory', 'options', 'constants', 'sidebarActive', 'debounce', 'mapValues', 'buildSelector', 'declareAnimations', 'arrayToShadow', 'arrayToFontFamily'],
   components: {
     AppHeader, AppContainer, AppSidebar, AppBody,
     StyleguideSection,

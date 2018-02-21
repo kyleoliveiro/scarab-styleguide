@@ -2,16 +2,17 @@
   <main id="app" class="App d:f fld:c h:100vh ff:primary lh:small">
 
     <AppHeader
-      :navTitle="scarab.SCARAB['__styleguide-title'] || 'styleguide'"
-      
+      :navTitle="scarab.__SCARAB['__styleguide-title'] || 'styleguide'"
       :filterSearch="this.filterSearch"
       :toggleSidebar="this.toggleSidebar">
     </AppHeader>
 
     <router-view
       :scarab="scarab"
+      :inventory="inventory"
+      :options="options"
+      :constants="constants"
       :sidebarActive="sidebarActive"
-
       :mapValues="this.mapValues"
       :buildSelector="this.buildSelector"
       :declareAnimations="this.declareAnimations"
@@ -23,7 +24,7 @@
 </template>
 
 <script>
-import scarab            from '../scarab.config.json'
+import scarab            from '../scarab.json'
 import _                 from 'lodash';
 
 import AppHeader         from './components/AppHeader.vue'
@@ -39,7 +40,10 @@ export default {
   data: function() {
     return {
       scarab,
-      sidebarActive: false
+      inventory     : scarab.__SCARAB.INVENTORY,
+      options       : scarab.__SCARAB.OPTIONS,
+      constants     : scarab.__SCARAB.CONSTANTS,
+      sidebarActive : false
     }
   },
   components: {
@@ -48,7 +52,7 @@ export default {
     DataTable
   },
   created: function() {
-    this.declareAnimations(this.scarab.SCARAB['animations']);
+    this.declareAnimations(this.inventory['animation']);
   },
   methods: {
     toggleSidebar: function() {
@@ -96,7 +100,7 @@ export default {
         .replace('{{s}}',  options.state)
         .replace('{{sp}}', options.statePrefix)
         .replace('{{ss}}', options.stateSuffix)
-        .replace('{{r}}',  scarab.SCARAB.modules[options.module]['root'])
+        .replace('{{r}}',  inventory.module[options.module].root)
         .replace('{{rp}}', options.rootPrefix)
         .replace('{{rs}}', options.rootSuffix)
         .replace('{{v}}',  options.variant)
